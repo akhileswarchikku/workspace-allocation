@@ -16,7 +16,7 @@ import datetime
 from random import shuffle
 import json
 
-engine = create_engine('postgresql://postgres:Akhileswar@localhost/work_space_1')
+engine = create_engine('postgresql://admin_name:password@host_name/database_name') # please Modified this line accordingly
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -162,7 +162,7 @@ Base.metadata.create_all(engine)
 class Based_on_BU():
 
     def __init__(self, organization, start_date, end_date, bu_name=[], reporting_managers=[], employee_ids=[]):
-        self.__engine = create_engine('postgresql://postgres:Akhileswar@localhost/work_space_1')
+        self.__engine = create_engine('postgresql://admin_name:password@host_name/database_name') # please Modified this line accordingly
         self.__bu_table = pd.read_sql('business_unit', con=self.__engine)
         self.__holidays_table = pd.read_sql('holidays', con=self.__engine)
         self.__leaves_table = pd.read_sql('leaves', con=self.__engine)
@@ -499,7 +499,7 @@ class Based_on_BU():
 
 class reassign_for_not_reported():
     def __init__(self, organization, given_date):
-        self.__engine = create_engine('postgresql://postgres:Akhileswar@localhost/work_space_1')
+        self.__engine = create_engine('postgresql://admin_name:password@host_name/database_name') # please Modified this line accordingly
         self.__bu_table = pd.read_sql('business_unit', con=self.__engine)
         self.__holidays_table = pd.read_sql('holidays', con=self.__engine)
         self.__leaves_table = pd.read_sql('leaves', con=self.__engine)
