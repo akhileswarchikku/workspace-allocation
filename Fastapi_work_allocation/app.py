@@ -66,3 +66,11 @@ async def reassign(item:re_assignment):
     b = reassign_for_not_reported(organization=item.org_name,given_date=item.given_date)
     result = b.update_now()
     return result
+
+@app.delete('/delete_records_from_tables/')
+async def deletion_of_table():
+    print("\n" * 100)
+    output = dict()
+    status = truncate_table().trucate_table_allocation_and_reassignment()
+    output['status'] = status
+    return output
