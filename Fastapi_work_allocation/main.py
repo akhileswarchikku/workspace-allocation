@@ -723,3 +723,19 @@ class reassign_for_not_reported():
                 bu_dict[float(bu_name)] = manager_dict
             org_dict[org_name] = bu_dict
         return org_dict 
+    
+    class truncate_table:
+    def __init__(self):
+        pass
+    def trucate_table_allocation_and_reassignment(self):
+        try:
+            session.execute('''TRUNCATE TABLE allocation''')
+            session.commit()
+            session.execute('''TRUNCATE TABLE remaining_desk''')
+            session.commit()
+        except:
+            session.rollback()
+            session.close()
+            return '''Error Occured while deleting Tables'''
+        session.close()
+        return '''Tables truncate successful'''
